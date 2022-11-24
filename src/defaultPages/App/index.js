@@ -46,7 +46,7 @@ class App extends React.Component {
             <div css={wrapperStyle()}>
                 <Router history={history}>
                     <Switch>
-                        <PrivateRoute path="/embedded-app" component={CometChatUI} />
+                        {/* <PrivateRoute path="/embedded-app" component={CometChatUI} />
                         <PrivateRoute path="/conversations" component={CometChatConversationListWithMessages} />
                         <PrivateRoute path="/groups" component={CometChatGroupListWithMessages} />
                         <PrivateRoute path="/users" component={CometChatUserListWithMessages} />
@@ -55,6 +55,18 @@ class App extends React.Component {
                         <PrivateRoute path="/user-list" component={CometChatUserList} />
                         <PrivateRoute path="/messages" component={CometChatMessages} chatWithGroup="supergroup" />
                         <PrivateRoute exact path="/" component={HomePage} />
+                        <Route path="/login" component={KitchenSinkApp} />
+                        <Route path="/register" component={Register} /> */}
+
+                        <PrivateRoute path="/embedded-app" component={HomePage} />
+                        <PrivateRoute path="/conversations" component={CometChatConversationListWithMessages} />
+                        <PrivateRoute path="/groups" component={CometChatGroupListWithMessages} />
+                        <PrivateRoute path="/users" component={CometChatUserListWithMessages} />
+                        <PrivateRoute path="/conversation-list" component={CometChatConversationList} />
+                        <PrivateRoute path="/group-list" component={CometChatGroupList} />
+                        <PrivateRoute path="/user-list" component={CometChatUserList} />
+                        <PrivateRoute path="/messages" component={CometChatMessages} chatWithGroup="supergroup" />
+                        <PrivateRoute exact path="/" component={CometChatUI} />
                         <Route path="/login" component={KitchenSinkApp} />
                         <Route path="/register" component={Register} />
                     </Switch>

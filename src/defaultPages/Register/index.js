@@ -104,7 +104,7 @@ const handleRegister = async (e) => {
                                 //   <Redirect to="/" />
                                 this.props.history.push('/')
                             }, error => {
-                              console.log("Login failed with exception:", { error });
+                                console.log("Login failed with exception:", { error });
                             }
                         );
                     }, error => {
@@ -133,33 +133,90 @@ const handleRegister = async (e) => {
 class Register extends React.Component {
     constructor(props) {
         super(props);
-    
+
         this.myRef = React.createRef();
-      }
-    
-      login = (uid) => {
-        
-        if(!uid) {
-          uid = this.myRef.current.value;
+    }
+
+    login = (uid) => {
+
+        if (!uid) {
+            uid = this.myRef.current.value;
         }
-    
+
         this.uid = uid;
         this.props.onLogin(this.uid, COMETCHAT_CONSTANTS.AUTH_KEY);
-      }
+    }
 
     render() {
         return (
-            <div>
-                <form onSubmit={handleRegister}>
-                    <input required type="text" placeholder="display name" />
-                    <input required type="email" placeholder="email" />
-                    <input required type="password" placeholder="password" />
+            <div style={{ justifyContent: "center", alignItems: "center" }}>
+                <h2
+                    style={{
+                        fontSize: "42px",
+                        color: "#2da7ff",
+                        width: "100%",
+                        textAlign: "center",
+                    }}
+                >
+                   Do Chat App
+                </h2>
+                <form
+                    onSubmit={handleRegister}
+                    style={{
+                        flexDirection: "column",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <div>
+                        <p>Name:</p>
+                        <input
+                            required
+                            type="text"
+                            placeholder="display name"
+                            style={{ borderRadius: 10 }}
+                        />
+                    </div>
+                    <div>
+                        <p>Email:</p>
+                        <input
+                            required
+                            type="email"
+                            placeholder="email"
+                            style={{ borderRadius: 10 }}
+                        />
+                    </div>
+                    <div>
+                        <p>Password:</p>
+                        <input
+                            required
+                            type="password"
+                            placeholder="password"
+                            style={{ borderRadius: 10 }}
+                        />
+                    </div>
                     {/* <input required style={{ display: "none" }} type="file" id="file" /> */}
                     {/* <label htmlFor="file">
-                        <img src={Add} alt="" />
-                        <span>Add an avatar</span>
-                    </label> */}
-                    <button disabled="" >Sign up</button>
+                            <img src={Add} alt="" />
+                            <span>Add an avatar</span>
+                        </label> */}
+                    <button
+                        disabled=""
+                        style={{
+                            outline: "none",
+                            backgroundColor: "#333",
+                            borderRadius: "10px",
+                            color: "white",
+                            padding: "10px 25px",
+                            "&:hover": {
+                                cursor: "pointer",
+                            },
+                            marginTop: 10,
+                        }}
+                    >
+                        Sign up
+                    </button>
                 </form>
             </div>
         );

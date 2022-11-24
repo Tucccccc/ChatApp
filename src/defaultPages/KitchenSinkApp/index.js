@@ -40,15 +40,15 @@ class KitchenSinkApp extends React.PureComponent {
   }
 
   login = (uid) => {
-    
-    if(!uid) {
+
+    if (!uid) {
       uid = this.myRef.current.value;
     }
 
     this.uid = uid;
     this.props.onLogin(this.uid, COMETCHAT_CONSTANTS.AUTH_KEY);
   }
-  
+
   render() {
 
     let loader = null;
@@ -82,20 +82,20 @@ class KitchenSinkApp extends React.PureComponent {
             console.log("Error")
           }
         )
-      }) .catch((error) => {
+      }).catch((error) => {
         alert(`Your user's name or password is not correct`);
       })
     }
 
     return (
       <React.Fragment>
-      <Global styles={loaderStyle} />
-      <div css={wrapperStyle()}>
+        <Global styles={loaderStyle} />
+        <div css={wrapperStyle()}>
           {authRedirect}
           {loader}
           {errorMessage}
-          <p css={titleStyle()}>Kitchen Sink App</p>
-          <p css={subtitleStyle()}>Login with one of our sample users</p>
+          <p css={titleStyle()}>Do Chat App</p>
+          {/* <p css={subtitleStyle()}>Login with one of our sample users</p>
           <div css={userContainerStyle()}>
             <div css={userWrapperStyle()} onClick={()=>this.login('superhero1')}>
               <div css={thumbnailWrapperStyle()}>
@@ -127,8 +127,8 @@ class KitchenSinkApp extends React.PureComponent {
               </div>
               <p>superhero5</p>
             </div>
-          </div><br/>
-          <div css={uidWrapperStyle()}>
+          </div><br/> */}
+          {/* <div css={uidWrapperStyle()}>
             <div>
               <p css={subtitleStyle()}>Login with UID</p>
             </div>
@@ -136,20 +136,23 @@ class KitchenSinkApp extends React.PureComponent {
               <input ref={this.myRef} type="text" placeholder="Enter your UID here" />
             </div>
             <div css={loginBtn()}><button type="button" onClick={() => this.login()}>Login</button></div>
-            <p>You don't have an account? <Link style={{color: '#3E9BEC', backgroundColor: 'white'}} to="/register">Register</Link></p>
-          </div>
+          </div> */}
+
           <div>
-                <form onSubmit={handleLogin}>
-                    <input required type="email" placeholder="email" />
-                    <input required type="password" placeholder="password" />
-                    {/* <input required style={{ display: "none" }} type="file" id="file" /> */}
-                    {/* <label htmlFor="file">
+            <form onSubmit={handleLogin}>
+              <label>Email: <input required type="email" placeholder="Email" style={{ outline: "none", margin: "10px 56px", padding: "8px 10px", borderRadius: "5px", border: "1px solid #bbb" }} /> </label>
+              <br></br>
+              <label>Password: <input required type="password" placeholder="Password" style={{ outline: "none", margin: "10px 30px", padding: "8px 10px", borderRadius: "5px", border: "1px solid #bbb", }} /> </label>
+              {/* <input required style={{ display: "none" }} type="file" id="file" /> */}
+              {/* <label htmlFor="file">
                         <img src={Add} alt="" />
                         <span>Add an avatar</span>
                     </label> */}
-                    <button disabled="" >Login</button>
-                </form>
-            </div>
+              <br></br>
+              <button disabled="" style={{ outline: "none", backgroundColor: "#333", borderRadius: "10px", color: "white", padding: "10px 25px", marginLeft: "100px" }}>Login</button>
+            </form>
+          </div>
+          <p>You don't have an account? <Link style={{ color: '#3E9BEC', backgroundColor: 'white' }} to="/register">Register</Link></p>
         </div>
       </React.Fragment>
     );
@@ -166,8 +169,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLogin: ( uid, authKey ) => dispatch( actions.auth( uid, authKey ) )
+    onLogin: (uid, authKey) => dispatch(actions.auth(uid, authKey))
   };
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )( KitchenSinkApp );
+export default connect(mapStateToProps, mapDispatchToProps)(KitchenSinkApp);
