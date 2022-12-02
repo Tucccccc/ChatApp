@@ -71,7 +71,7 @@ class KitchenSinkApp extends React.PureComponent {
       const email = e.target[0].value;
       const password = e.target[1].value;
 
-      const authKey = '53fd76a0831f56595117d4d71645a6c451e13bba';
+      const authKey = '295029387d530fe14d664e3d5a13c8bc79bc5b81';
       signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         const firebaseUid = userCredential.user.uid;
         CometChat.login(firebaseUid, authKey).then(

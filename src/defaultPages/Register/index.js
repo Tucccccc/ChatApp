@@ -11,7 +11,7 @@ import Context from "../../context"
 import { auth, db, storage, createUserWithEmailAndPassword } from "../../firebase";
 import { COMETCHAT_CONSTANTS } from '../../consts';
 
-const appID = "225224d025f5be33";
+const appID = "226895e5e1f03eb6";
 const region = "us";
 const appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region).build();
 
@@ -79,15 +79,15 @@ const handleRegister = async (e) => {
 
     createUserWithEmailAndPassword(auth, email, password).then((userCrendentials) => {
         const firebaseUid = userCrendentials._tokenResponse.localId;
-        const appID = "225224d025f5be33";
+        const appID = "226895e5e1f03eb6";
         const region = "us";
         const appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region).build();
-        const history = useHistory();
+
         CometChat.init(appID, appSetting).then(
             () => {
                 console.log("Initialization completed successfully");
                 // You can now call login function.
-                const authKey = '53fd76a0831f56595117d4d71645a6c451e13bba';
+                const authKey = '295029387d530fe14d664e3d5a13c8bc79bc5b81';
                 // call cometchat service to register a new account.
                 var user = new CometChat.User(firebaseUid);
                 user.setName(displayName);
@@ -102,7 +102,7 @@ const handleRegister = async (e) => {
                             user => {
                                 console.log("Login Successful:", { user });
                                 //   <Redirect to="/" />
-                                this.props.history.push('/')
+                                // this.props.history.push('/')
                             }, error => {
                                 console.log("Login failed with exception:", { error });
                             }
